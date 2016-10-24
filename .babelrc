@@ -2,9 +2,5 @@
   "presets": [
     "es2015",
     "react"
-  ],
-  "plugins": [
-    "typecheck",
-    "transform-runtime"
   ]
 }
