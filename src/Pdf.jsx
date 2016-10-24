@@ -1,7 +1,5 @@
 import React from 'react';
-
-require('pdfjs-dist/build/pdf.combined');
-require('pdfjs-dist/web/compatibility');
+import { getDocument } from 'pdfjs-dist';
 
 const makeCancelable = (promise) => {
   let hasCanceled = false;
@@ -181,7 +179,7 @@ class Pdf extends React.Component {
     if (this.documentPromise) {
       this.documentPromise.cancel();
     }
-    this.documentPromise = makeCancelable(window.PDFJS.getDocument(val).promise);
+    this.documentPromise = makeCancelable(getDocument(val).promise);
     this.documentPromise
       .promise
       .then(this.onDocumentComplete)
